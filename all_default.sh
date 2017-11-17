@@ -15,4 +15,4 @@ python convert.py \
   --model ConvVAE \
   --checkpoint logdir/train/1117-1836-57-2017/model.ckpt-59253 \
   --file_pattern "./dataset/vcc2016/bin/Testing Set/{}/*.bin"
-echo "Please find your results in `./logdir/output/[timestamp]`"
+echo "Please find your results in `./logdir/output/1117-1919-00-2017`"
