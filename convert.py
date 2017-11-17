@@ -65,6 +65,8 @@ def nh_to_nchw(x):
 
 def main():
     logdir, ckpt = os.path.split(args.checkpoint)
+    print (logdir)
+    print (ckpt)
     arch = tf.gfile.Glob(os.path.join(logdir, 'architecture*.json'))[0]  # should only be 1 file
     with open(arch) as fp:
         arch = json.load(fp)
