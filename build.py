@@ -2,6 +2,7 @@ import numpy as np
 import pyworld as pw
 import soundfile as sf
 import tensorflow as tf
+import os
 from analyzer import SPEAKERS, pw2wav, read, read_whole_features
 
 
@@ -13,6 +14,12 @@ tf.app.flags.DEFINE_string(
 
 
 def main():
+
+    os.environ["CUDA_VISIBLE_DEVICES"] = '0'   #指定第一块GPU可用  
+    config = tf.ConfigProto()  
+    config.gpu_options.per_process_gpu_memory_fraction = 0.5  # 程序最多只能占用指定gpu50%的显存  
+    config.gpu_options.allow_growth = True      #程序按需申请内存  
+
     tf.gfile.MkDir('./etc')
 
     # ==== Save max and min value ====
